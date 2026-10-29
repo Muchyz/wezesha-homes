@@ -66,3 +66,7 @@ export const testimonials = [
 export const diasporaImg = 'https://unsplash.com/photos/bcHWGBbOQPk/download?force=true&w=800'
 
 export const areas = ['Kitengela Milimani', 'KAG', 'KCA', 'Kisaju']
+
+// Selling points shown on every plot card. Edit freely.
+// To change one plot only, add  perks: ['...']  or  deed: false  inside that plot in the projects list.
+export const perks = ['Prime location', 'Affordable prices', 'Flexible payments', 'Slightly negotiable']

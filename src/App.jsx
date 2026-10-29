@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { I } from './Icons.jsx'
-import { diasporaImg, PHONE, WA, EMAIL, ADDRESS, slides, badges, stats, projects, services, why, testimonials, areas, FB } from './data.js'
+import { diasporaImg, PHONE, WA, EMAIL, ADDRESS, slides, badges, stats, projects, services, why, testimonials, areas, FB, perks } from './data.js'
 
 const Logo = ({ big, light }) => (
   <div className={'logo' + (big ? ' big' : '') + (light ? ' light' : '')}>
@@ -108,10 +108,12 @@ export default function App() {
                 <Photo src={p.img} i={k + 3} label={p.name} />
                 <span className={'pill ' + (p.status === 'Selling fast' ? 'hot' : '')}><i />{p.status}</span>
                 <span className="chip">{p.short}</span>
+                {p.deed !== false && <span className="deed"><I.shield /> Ready title deed</span>}
               </div>
               <p className="loc"><I.pin /> {p.loc}</p>
               <h3>{p.name}</h3>
               <p className="muted">{p.desc}</p>
+              <ul className="perks">{(p.perks || perks).map(x => <li key={x}><span><I.check /></span>{x}</li>)}</ul>
               <div className="prow"><b>{p.price}</b><a className="go" href={wa(`Hello, I am interested in ${p.name} (${p.price}).`)} aria-label="Enquire on WhatsApp"><I.up /></a></div>
             </article>
           ))}

@@ -269,3 +269,12 @@ blockquote p.clamp{display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:v
 .more{display:block;background:none;border:0;padding:0;margin:-6px 0 16px;font:600 15px Outfit,sans-serif;color:var(--o);cursor:pointer}
 #reviews>.btn{grid-column:1/-1}
 @media(min-width:768px){#reviews>.btn{justify-self:center;width:auto;min-width:300px}}
+
+/* plot card selling points */
+.deed{position:absolute;right:12px;bottom:12px;display:flex;align-items:center;gap:6px;background:#fff;color:var(--g);font:700 13px Outfit,sans-serif;padding:8px 12px;border-radius:99px}
+.deed .ico{width:16px;height:16px;color:var(--g2)}
+.perks{list-style:none;padding:0;margin:14px 4px 0;display:grid;grid-template-columns:1fr 1fr;gap:10px 8px}
+.perks li{display:flex;align-items:center;gap:8px;font-size:14px;font-weight:600;line-height:1.25}
+.perks span{display:grid;place-items:center;flex:none;width:22px;height:22px;border-radius:50%;background:#e7f3d8;color:var(--g2)}
+.perks .ico{width:13px;height:13px}
+@media (max-width:360px){.deed{font-size:12px;padding:7px 10px}.perks li{font-size:13px}}
