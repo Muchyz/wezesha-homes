@@ -1,19 +1,29 @@
 import { useEffect, useState } from 'react'
 import { I } from './Icons.jsx'
-import { diasporaImg, PHONE, WA, EMAIL, ADDRESS, slides, badges, stats, projects, services, why, testimonials } from './data.js'
+import { diasporaImg, PHONE, WA, EMAIL, ADDRESS, slides, badges, stats, projects, services, why, testimonials, areas, FB } from './data.js'
 
-const Logo = ({ big }) => (
-  <div className={'logo' + (big ? ' big' : '')}>
+const Logo = ({ big, light }) => (
+  <div className={'logo' + (big ? ' big' : '') + (light ? ' light' : '')}>
     <svg viewBox="0 0 64 44" width={big ? 70 : 46} aria-hidden>
-      <path d="M6 24 32 4l26 20" fill="none" stroke="#2c5a0e" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M6 24 32 4l26 20" fill="none" stroke={light ? '#ffffff' : '#2c5a0e'} strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
       <path d="M32 42c-9 0-14-6-14-13 9 0 14 5 14 13Z" fill="#6cc21a" />
-      <path d="M32 42c9 0 14-6 14-13-9 0-14 5-14 13Z" fill="#2c5a0e" />
+      <path d="M32 42c9 0 14-6 14-13-9 0-14 5-14 13Z" fill={light ? '#3f7d12' : '#2c5a0e'} />
     </svg>
     <b>WEZESHA</b><small>HOMES</small>
   </div>
 )
 
 const Photo = ({ src, i = 0, label }) => <img className="photo" src={src || `${import.meta.env.BASE_URL}images/scene-${i % 8}.svg`} alt={label} loading="lazy" onError={(e) => { e.currentTarget.onerror = null; e.currentTarget.src = `${import.meta.env.BASE_URL}images/scene-${i % 8}.svg` }} />
+
+const FootCol = ({ title, open: o = false, children }) => {
+  const [open, setOpen] = useState(o)
+  return (
+    <nav className={'fcol' + (open ? ' open' : '')} aria-label={title}>
+      <button type="button" className="fcol-h" aria-expanded={open} onClick={() => setOpen(!open)}>{title}<I.chev /></button>
+      <div className="fcol-b">{children}</div>
+    </nav>
+  )
+}
 
 const Head = ({ label, a, b }) => (
   <div className="head"><p className="label"><i />{label}</p><h2>{a} <em>{b}</em></h2></div>
@@ -46,7 +56,7 @@ export default function App() {
 
       {menu && <div className="scrim" onClick={() => setMenu(false)}>
         <aside className="drawer" onClick={(e) => e.stopPropagation()}>
-          <div className="drawer-top"><h3>Menu</h3><button className="x" onClick={() => setMenu(false)} aria-label="Close menu"><I.close /></button></div>
+          <div className="drawer-top"><Logo /><button className="x" onClick={() => setMenu(false)} aria-label="Close menu"><I.close /></button></div>
           <nav>{nav.map((n, k) => { const [t, h] = n.split('|'); return <a key={t} href={h} className={k === 0 ? 'on' : ''} onClick={() => setMenu(false)}>{t}<span><I.chev /></span></a> })}</nav>
           <div className="duo"><a href={`tel:${PHONE}`}><I.phone /> Call</a><a href={wa('Hello Wezesha Homes')}><I.wa /> WhatsApp</a></div>
           <a className="btn orange full" href="#contact" onClick={() => setMenu(false)}>Book a site visit</a>
@@ -147,14 +157,51 @@ export default function App() {
         </section>
       </main>
 
-      <footer className="card foot">
-        <Logo big />
-        <p className="muted center">Wezesha Homes – better environment, better future. Helping you own a plot with confidence.</p>
-        <h4>Get in touch</h4>
-        <a href={`tel:${PHONE}`}><I.phone /> {PHONE}</a>
-        <a href={`mailto:${EMAIL}`}><I.mail /> {EMAIL}</a>
-        <p className="addr"><I.pin /> {ADDRESS}</p>
-        <small>© {new Date().getFullYear()} Wezesha Homes. All rights reserved.</small>
+      <footer className="sf">
+        <div className="sf-in">
+          <ul className="sf-trust">
+            {[['Free site visits daily', 'pin'], ['Guided ownership paperwork', 'doc'], ['Buy from abroad', 'shield']].map(([t, ic]) => { const Ic = I[ic]; return <li key={t}><span><Ic /></span>{t}</li> })}
+          </ul>
+
+          <div className="sf-grid">
+            <div className="sf-brand">
+              <Logo big light />
+              <p>Wezesha Homes – better environment, better future. Helping you own a plot with confidence.</p>
+              <h4>Areas we serve</h4>
+              <div className="sf-areas">{areas.map(a => <span key={a}><I.pin /> {a}</span>)}</div>
+            </div>
+
+            <div className="sf-links">
+              <FootCol title="Explore" open>
+                {nav.filter(n => !n.startsWith('Gallery')).map(n => { const [t, h] = n.split('|'); return <a key={t} href={h}>{t}</a> })}
+                <a href="#diaspora">Buying from abroad</a>
+              </FootCol>
+              <FootCol title="Plots">
+                {projects.map(p => <a key={p.name} href={wa(`Hello, I am interested in ${p.name} (${p.price}).`)} target="_blank" rel="noreferrer"><span>{p.name.replace(' – ', ' ')}</span><small>{p.short}</small></a>)}
+              </FootCol>
+              <FootCol title="Services">
+                {services.map(([t]) => <a key={t} href="#services">{t}</a>)}
+              </FootCol>
+            </div>
+
+            <div className="sf-contact">
+              <h4>Get in touch</h4>
+              <div className="sf-card">
+                <a className="ci" href={`tel:${PHONE}`}><span><I.phone /></span><div><small>Call us</small><b>{PHONE.replace(/(\d{4})(\d{3})(\d{3})/, '$1 $2 $3')}</b></div></a>
+                <a className="ci" href={wa('Hello Wezesha Homes')} target="_blank" rel="noreferrer"><span><I.wa /></span><div><small>WhatsApp</small><b>Chat with our team</b></div></a>
+                <a className="ci" href={`mailto:${EMAIL}`}><span><I.mail /></span><div><small>Email</small><b>{EMAIL}</b></div></a>
+                <a className="ci" href={FB} target="_blank" rel="noreferrer"><span><I.fb /></span><div><small>Facebook</small><b>Follow Wezesha Homes</b></div></a>
+                {!ADDRESS.startsWith('Add your') && <div className="ci"><span><I.pin /></span><div><small>Visit us</small><b>{ADDRESS}</b></div></div>}
+              </div>
+              <a className="btn orange sf-book" href="#contact">Book a site visit <I.arrow /></a>
+            </div>
+          </div>
+
+          <div className="sf-base">
+            <small>© {new Date().getFullYear()} Wezesha Homes. All rights reserved.</small>
+            <a className="totop" href="#top" aria-label="Back to top"><I.top /></a>
+          </div>
+        </div>
       </footer>
 
       <a className="float" href={wa('Hello Wezesha Homes')} aria-label="Chat on WhatsApp"><I.wa /></a>

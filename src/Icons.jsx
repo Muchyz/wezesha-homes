@@ -18,5 +18,7 @@ export const I = {
   road: S('M8 3L5 21M16 3l3 18M12 4v3M12 10v4M12 17v3'),
   doc: S('M7 3h8l4 4v14H7zM15 3v4h4M10 13h6M10 17h6'),
   megaphone: S('M3 11v3l12 5V6L3 11zM15 9a3 3 0 0 1 0 6M6 14l1 5h3l-1-4'),
+  fb: S('M14 8h3V4h-3a4 4 0 0 0-4 4v3H7v4h3v6h4v-6h3l1-4h-4V8.5a.5.5 0 0 1 .5-.5z'),
   up: S('M7 17 17 7M8 7h9v9'),
+  top: S('M12 19V5M5 12l7-7 7 7'),
 }

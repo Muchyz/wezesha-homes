@@ -1,7 +1,8 @@
 // ===== EDIT YOUR CONTENT HERE =====
 export const PHONE = '0115284118'
 export const WA = '254115284118'
-export const EMAIL = 'info@wezeshahomes.co.ke' // placeholder - change
+export const EMAIL = 'ichomieugin099@gmail.com'
+export const FB = 'https://www.facebook.com/profile.php?id=61591970317172'
 export const ADDRESS = 'Add your head office address here' // placeholder - change
 
 export const slides = [
@@ -45,3 +46,5 @@ export const testimonials = [
 ]
 
 export const diasporaImg = 'https://unsplash.com/photos/bcHWGBbOQPk/download?force=true&w=800'
+
+export const areas = ['Kitengela Milimani', 'KAG', 'KCA', 'Kisaju']
