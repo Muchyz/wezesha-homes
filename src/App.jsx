@@ -29,6 +29,8 @@ const Head = ({ label, a, b }) => (
   <div className="head"><p className="label"><i />{label}</p><h2>{a} <em>{b}</em></h2></div>
 )
 
+const navIcons = { Home: I.home, Projects: I.grid, About: I.info, 'How to buy': I.key, Gallery: I.image, Community: I.users, Contact: I.phone }
+
 export default function App() {
   const [menu, setMenu] = useState(false)
   const [i, setI] = useState(0)
@@ -57,7 +59,7 @@ export default function App() {
       {menu && <div className="scrim" onClick={() => setMenu(false)}>
         <aside className="drawer" onClick={(e) => e.stopPropagation()}>
           <div className="drawer-top"><Logo /><button className="x" onClick={() => setMenu(false)} aria-label="Close menu"><I.close /></button></div>
-          <nav>{nav.map((n, k) => { const [t, h] = n.split('|'); return <a key={t} href={h} className={k === 0 ? 'on' : ''} onClick={() => setMenu(false)}>{t}<span><I.chev /></span></a> })}</nav>
+          <nav>{nav.map((n, k) => { const [t, h] = n.split('|'); return <a key={t} href={h} className={k === 0 ? 'on' : ''} onClick={() => setMenu(false)}><i className="ni">{navIcons[t] ? (() => { const Ic = navIcons[t]; return <Ic /> })() : null}</i><strong className="nt">{t}</strong><span><I.chev /></span></a> })}</nav>
           <div className="duo"><a href={`tel:${PHONE}`}><I.phone /> Call</a><a href={wa('Hello Wezesha Homes')}><I.wa /> WhatsApp</a></div>
           <a className="btn orange full" href="#contact" onClick={() => setMenu(false)}>Book a site visit</a>
         </aside>

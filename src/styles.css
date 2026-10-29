@@ -255,3 +255,9 @@ img{max-width:100%}
 .drawer-top .logo svg{width:54px}
 .drawer-top .logo b{font-size:20px}
 .drawer .duo a:last-child{background:#157a33;color:#fff;border-color:#157a33}
+
+.drawer nav a{align-items:center;gap:14px}
+.ni{display:grid;place-items:center;width:40px;height:40px;border-radius:12px;background:var(--beige);color:var(--g2);flex:none}
+.ni .ico{width:20px;height:20px}
+.drawer nav a.on .ni{background:#fff;color:var(--o)}
+.nt{flex:1;font-weight:inherit}

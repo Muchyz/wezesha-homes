@@ -19,6 +19,12 @@ export const I = {
   doc: S('M7 3h8l4 4v14H7zM15 3v4h4M10 13h6M10 17h6'),
   megaphone: S('M3 11v3l12 5V6L3 11zM15 9a3 3 0 0 1 0 6M6 14l1 5h3l-1-4'),
   fb: S('M14 8h3V4h-3a4 4 0 0 0-4 4v3H7v4h3v6h4v-6h3l1-4h-4V8.5a.5.5 0 0 1 .5-.5z'),
+  home: S('M3 11l9-8 9 8M5 10v10h14V10M10 20v-6h4v6'),
+  grid: S('M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z'),
+  info: S('M12 11v6M12 7.5h.01', <circle cx="12" cy="12" r="9" />),
+  key: S('M10.5 12.5 20 3M16 7l3 3M18 5l2 2', <circle cx="8" cy="16" r="4" />),
+  image: S('M3 5h18v14H3zM3 16l5-5 4 4 3-3 6 5', <circle cx="16" cy="9" r="1.5" />),
+  users: S('M9 11a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7zM2.5 20a6.5 6.5 0 0 1 13 0M16 4.3a3.5 3.5 0 0 1 0 6.4M18 14a6.5 6.5 0 0 1 3.5 6'),
   up: S('M7 17 17 7M8 7h9v9'),
   top: S('M12 19V5M5 12l7-7 7 7'),
 }
