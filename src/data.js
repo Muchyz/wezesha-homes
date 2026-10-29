@@ -24,10 +24,10 @@ export const projects = [
   { name: 'Kisaju Plots', loc: 'Kisaju', price: 'KSh 2,500,000', short: 'KSh 2.5M', status: 'Available', desc: 'Room to grow in a developing neighbourhood.', img: 'https://unsplash.com/photos/jqPDZZe2Wu8/download?force=true&w=800' },
 ]
 export const services = [
-  ['Finding the right land', 'We search for and check plots in promising areas so you choose with confidence.', 'https://unsplash.com/photos/tXi-fAdCqWg/download?force=true&w=800', 'mountain'],
-  ['Planning & surroundings', 'Plots are laid out neatly with access and nearby amenities in mind.', 'https://unsplash.com/photos/CCDUcYWsH20/download?force=true&w=800', 'road'],
-  ['Ownership paperwork', 'We walk you through every document until the plot is properly yours.', 'https://unsplash.com/photos/0TaIsfiwloA/download?force=true&w=800', 'doc'],
-  ['Sales & payment support', 'Talk to our agents about viewing, offers and payment arrangements.', 'https://unsplash.com/photos/-AnJgAhRJQM/download?force=true&w=800', 'megaphone'],
+  ['Finding the right land', 'We search for and check plots in promising areas so you choose with confidence.', '/plot-pins.jpg', 'mountain'],
+  ['Planning & surroundings', 'Plots are laid out neatly with access and nearby amenities in mind.', '/planning.jpg', 'road'],
+  ['Ownership paperwork', 'We walk you through every document until the plot is properly yours.', '/paperwork.jpg', 'doc'],
+  ['Sales & payment support', 'Talk to our agents about viewing, offers and payment arrangements.', '/support.jpg', 'megaphone'],
 ]
 export const why = [
   ['Open dealings', 'You see what you are buying, and every step is explained.'],
