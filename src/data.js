@@ -7,8 +7,8 @@ export const ADDRESS = 'Add your head office address here' // placeholder - chan
 
 export const slides = [
   { a: 'Land that grows,', b: 'with you.', text: 'Choose a plot in a well-placed area and start building the life you have been planning.', cta: 'See available plots', to: '#projects', img: 'https://unsplash.com/photos/0TaIsfiwloA/download?force=true&w=800' },
-  { a: 'Own your plot', b: 'this week.', text: 'Affordable plots from KSh 500K, with site visits arranged every day.', cta: 'Browse plots', to: '#projects', img: 'https://unsplash.com/photos/-AnJgAhRJQM/download?force=true&w=800' },
-  { a: 'Clear.', b: 'Honest. Reliable.', text: 'We guide you from first viewing to the day your paperwork is in your hands.', cta: 'Our services', to: '#services', img: 'https://unsplash.com/photos/bcHWGBbOQPk/download?force=true&w=800' },
+  { a: 'Own your plot', b: 'this week.', text: 'Affordable plots from KSh 500K, with site visits arranged every day.', cta: 'Browse plots', to: '#projects', img: '/slide2.jpg' },
+  { a: 'Clear.', b: 'Honest. Reliable.', text: 'We guide you from first viewing to the day your paperwork is in your hands.', cta: 'Our services', to: '#services', img: '/paperwork.jpg' },
 ]
 export const badges = [['Secure investment', 'shield'], ['Prime locations', 'pin'], ['Developed surroundings', 'road']]
 export const stats = [
