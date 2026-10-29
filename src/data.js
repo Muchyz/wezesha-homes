@@ -70,3 +70,8 @@ export const areas = ['Kitengela Milimani', 'KAG', 'KCA', 'Kisaju']
 // Selling points shown on every plot card. Edit freely.
 // To change one plot only, add  perks: ['...']  or  deed: false  inside that plot in the projects list.
 export const perks = ['Prime location', 'Affordable prices', 'Flexible payments', 'Slightly negotiable']
+export const slideBadges = [
+  badges,
+  [['Daily site visits', 'pin'], ['Plots from KSh 500K', 'mountain'], ['Quick replies', 'megaphone']],
+  [['Genuine title deeds', 'doc'], ['Transparent pricing', 'shield'], ['Support to the end', 'megaphone']],
+]

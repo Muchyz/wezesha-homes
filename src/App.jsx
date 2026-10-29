@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { I } from './Icons.jsx'
 import { CircleCheckBig } from 'lucide-react'
-import { diasporaImg, PHONE, WA, EMAIL, ADDRESS, slides, badges, stats, projects, services, why, testimonials, areas, FB, perks } from './data.js'
+import { diasporaImg, PHONE, WA, EMAIL, ADDRESS, slides, badges, slideBadges, stats, projects, services, why, testimonials, areas, FB, perks } from './data.js'
 
 const Logo = ({ big, light }) => (
   <div className={'logo' + (big ? ' big' : '') + (light ? ' light' : '')}>
@@ -94,7 +94,7 @@ export default function App() {
           <h1>{s.a}<br /><em>{s.b}</em></h1>
           <p>{s.text}</p>
           <a className={'btn ' + (i === 1 ? 'green' : 'orange')} href={s.to}>{s.cta} <I.arrow /></a>
-          {i === 0 && <ul className="badges">{badges.map(([b, ic]) => { const Ic = I[ic]; return <li key={b}><span><Ic /></span>{b}</li> })}</ul>}
+          <ul className="badges">{slideBadges[i].map(([b, ic]) => { const Ic = I[ic]; return <li key={b}><span><Ic /></span>{b}</li> })}</ul>
           <div className="dots">{slides.map((_, k) => <button key={k} className={k === i ? 'on' : ''} onClick={() => setI(k)} aria-label={`Slide ${k + 1}`} />)}</div>
           </div>
         </section>
