@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { I } from './Icons.jsx'
+import { CircleCheckBig } from 'lucide-react'
 import { diasporaImg, PHONE, WA, EMAIL, ADDRESS, slides, badges, stats, projects, services, why, testimonials, areas, FB, perks } from './data.js'
 
 const Logo = ({ big, light }) => (
@@ -113,7 +114,7 @@ export default function App() {
               <p className="loc"><I.pin /> {p.loc}</p>
               <h3>{p.name}</h3>
               <p className="muted">{p.desc}</p>
-              <ul className="perks">{(p.perks || perks).map(x => <li key={x}><span><I.check /></span>{x}</li>)}</ul>
+              <ul className="perks">{(p.perks || perks).map(x => <li key={x}><CircleCheckBig size={22} strokeWidth={2} />{x}</li>)}</ul>
               <div className="prow"><b>{p.price}</b><a className="go" href={wa(`Hello, I am interested in ${p.name} (${p.price}).`)} aria-label="Enquire on WhatsApp"><I.up /></a></div>
             </article>
           ))}
