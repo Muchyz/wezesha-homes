@@ -63,7 +63,7 @@ export const testimonials = [
   { q: "My dream is to have an investment in Kenya that I can build on in the future. I wanted to learn about the property and understand the process despite living overseas. I would advise other diaspora buyers to ask questions, verify ownership, and keep all transaction records.", n: "Irene Naliaka", r: "Toronto, Canada 🇨🇦", verified: true },
 ]
 
-export const diasporaImg = 'https://unsplash.com/photos/bcHWGBbOQPk/download?force=true&w=800'
+export const diasporaImg = '/team.jpg'
 
 export const areas = ['Kitengela Milimani', 'KAG', 'KCA', 'Kisaju']
 
