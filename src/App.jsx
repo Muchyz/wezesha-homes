@@ -25,6 +25,26 @@ const FootCol = ({ title, open: o = false, children }) => {
   )
 }
 
+const Tick = () => (
+  <svg className="tick" viewBox="0 0 24 24" role="img" aria-label="Verified client">
+    <path d="M12 1.8l2.4 1.7 2.9-.3 1.2 2.7 2.6 1.4-.3 2.9L22 12l-1.7 2.4.3 2.9-2.7 1.2-1.4 2.6-2.9-.3L12 22.2l-2.4-1.7-2.9.3-1.2-2.7-2.6-1.4.3-2.9L2 12l1.7-2.4-.3-2.9 2.7-1.2 1.4-2.6 2.9.3L12 1.8z" fill="#1d9bf0" />
+    <path d="M8 12.3l2.7 2.7 5.6-5.6" fill="none" stroke="#fff" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+)
+
+const Review = ({ t }) => {
+  const [more, setMore] = useState(false)
+  const long = t.q.length > 140
+  return (
+    <blockquote>
+      <span className="qm">”</span>
+      <p className={long && !more ? 'clamp' : ''}>{t.q}</p>
+      {long && <button type="button" className="more" onClick={() => setMore(!more)}>{more ? 'Show less' : 'Read more'}</button>}
+      <footer><i>{t.n[0]}</i><div><b className="rv-name">{t.n}{t.verified && <Tick />}</b><small>{t.r}</small></div></footer>
+    </blockquote>
+  )
+}
+
 const Head = ({ label, a, b }) => (
   <div className="head"><p className="label"><i />{label}</p><h2>{a} <em>{b}</em></h2></div>
 )
@@ -33,6 +53,7 @@ const navIcons = { Home: I.home, Projects: I.grid, About: I.info, 'How to buy': 
 
 export default function App() {
   const [menu, setMenu] = useState(false)
+  const [shown, setShown] = useState(3)
   const [i, setI] = useState(0)
   const [mode, setMode] = useState('Ask a question')
   const [f, setF] = useState({ name: '', phone: '', email: '', project: 'Not sure yet / any plot', msg: '' })
@@ -114,9 +135,8 @@ export default function App() {
 
         <section id="reviews" className="card sec">
           <Head label="Testimonials" a="What our clients" b="say" />
-          {testimonials.map(t => (
-            <blockquote key={t.q}><span className="qm">”</span><p>{t.q}</p><footer><i>{t.n[0]}</i><div><b>{t.n}</b><small>{t.r}</small></div></footer></blockquote>
-          ))}
+          {testimonials.slice(0, shown).map(t => <Review key={t.n + t.q} t={t} />)}
+          {testimonials.length > 3 && <button type="button" className="btn ghost full" onClick={() => setShown(shown < testimonials.length ? shown + 3 : 3)}>{shown < testimonials.length ? 'Read more testimonials' : 'Show fewer testimonials'}</button>}
         </section>
 
         <section id="diaspora" className="card diaspora">

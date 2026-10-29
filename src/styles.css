@@ -261,3 +261,11 @@ img{max-width:100%}
 .ni .ico{width:20px;height:20px}
 .drawer nav a.on .ni{background:#fff;color:var(--o)}
 .nt{flex:1;font-weight:inherit}
+
+/* testimonials: verified tick + read more */
+.rv-name{display:flex;align-items:center;gap:6px}
+.tick{width:18px;height:18px;flex:none}
+blockquote p.clamp{display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+.more{display:block;background:none;border:0;padding:0;margin:-6px 0 16px;font:600 15px Outfit,sans-serif;color:var(--o);cursor:pointer}
+#reviews>.btn{grid-column:1/-1}
+@media(min-width:768px){#reviews>.btn{justify-self:center;width:auto;min-width:300px}}
